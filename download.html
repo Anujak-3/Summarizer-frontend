@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your Results - Summarizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'amazon-blue': '#232F3E',
+                        'dark-blue': '#0E2148',
+                        'purple-indigo': '#483AA0',
+                        'light-violet': '#7965C1',
+                        'soft-gold': '#E3D095'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0E2148 0%, #483AA0 50%, #7965C1 100%);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #0E2148 0%, #483AA0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gold-accent {
+            background: linear-gradient(135deg, #E3D095 0%, #d4c078 100%);
+        }
+        .download-card {
+            transition: all 0.3s ease;
+        }
+        .download-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(14, 33, 72, 0.15);
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #0E2148 0%, #483AA0 100%);
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            background: linear-gradient(135deg, #483AA0 0%, #7965C1 100%);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-amazon-blue shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Navigation Links -->
+                <div class="flex items-center space-x-8">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center space-x-3">
+                        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <h1 class="text-white text-xl font-bold tracking-wide">Summarizer</h1>
+                    </div>
+                    
+                    <!-- Navigation Links -->
+                    <div class="hidden md:flex items-center gap-12 ml-6 text-lg font-semibold">
+  <a href="index.html" class="text-gray-300 hover:text-soft-gold transition duration-200">Home</a>
+  <a href="summary.html" class="text-gray-300 hover:text-soft-gold transition duration-200">Summary</a>
+  <a href="download.html" class="text-soft-gold hover:text-soft-gold transition duration-200">Download</a>
+  <a href="about.html" class="text-gray-300 hover:text-soft-gold transition duration-200">About</a>
+</div>
+
+                </div>
+
+                <!-- Contact Link (Right Side) -->
+              <div class="hidden md:block">
+        <a href="contact.html"
+          class="text-gray-300 hover:text-soft-gold px-3 py-2 rounded-md text-lg font-semibold transition-colors duration-200">
+          Contact</a>
+      </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white" onclick="toggleMobileMenu()">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-amazon-blue border-t border-gray-600">
+                <a href="#" class="text-gray-300 hover:text-soft-gold block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#" class="text-gray-300 hover:text-soft-gold block px-3 py-2 rounded-md text-base font-medium">Summary</a>
+                <a href="#" class="text-white block px-3 py-2 rounded-md text-base font-medium">Download</a>
+                <a href="#" class="text-gray-300 hover:text-soft-gold block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#" class="text-gray-300 hover:text-soft-gold block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="hero-gradient min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Page Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gradient mb-4">
+                    Download Your Results
+                </h1>
+                <div class="w-16 h-1 gold-accent mx-auto rounded-full mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Your AI-generated summaries are ready! Choose your preferred format and download your results instantly.
+                </p>
+            </div>
+
+            <!-- Download Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Summary PDF Card -->
+                <div class="download-card bg-white rounded-2xl shadow-xl p-8 text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark-blue mb-4">Summary PDF</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Complete document summary with professional formatting, perfect for sharing and presentations.
+                    </p>
+                    <div class="text-sm text-gray-500 mb-6">
+                        <span class="inline-flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Generated 2 minutes ago
+                        </span>
+                    </div>
+                    <button onclick="downloadFile('summary', 'pdf')" class="download-btn text-white px-8 py-3 rounded-xl font-semibold w-full">
+                        Download PDF
+                    </button>
+                </div>
+
+                <!-- Highlights TXT Card -->
+                <div class="download-card bg-white rounded-2xl shadow-xl p-8 text-center">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark-blue mb-4">Highlights TXT</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Key points and important insights extracted from your document in plain text format.
+                    </p>
+                    <div class="text-sm text-gray-500 mb-6">
+                        <span class="inline-flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                            5 key highlights found
+                        </span>
+                    </div>
+                    <button onclick="downloadFile('highlights', 'txt')" class="download-btn text-white px-8 py-3 rounded-xl font-semibold w-full">
+                        Download TXT
+                    </button>
+                </div>
+
+                <!-- Keywords CSV Card -->
+                <div class="download-card bg-white rounded-2xl shadow-xl p-8 text-center md:col-span-2 lg:col-span-1">
+                    <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark-blue mb-4">Keywords CSV</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Extracted keywords and phrases in CSV format, ready for data analysis and further processing.
+                    </p>
+                    <div class="text-sm text-gray-500 mb-6">
+                        <span class="inline-flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                            10 keywords extracted
+                        </span>
+                    </div>
+                    <button onclick="downloadFile('keywords', 'csv')" class="download-btn text-white px-8 py-3 rounded-xl font-semibold w-full">
+                        Download CSV
+                    </button>
+                </div>
+            </div>
+
+            <!-- Additional Info Section -->
+            <div class="mt-16 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg p-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold text-dark-blue mb-4">Need Help?</h3>
+                    <p class="text-gray-600 mb-6">
+                        Having trouble with your downloads? Check out our help center or contact our support team.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="border-2 border-purple-indigo text-purple-indigo px-6 py-3 rounded-xl font-semibold hover:bg-purple-indigo hover:text-white transition-all duration-300">
+                            Help Center
+                        </a>
+                        <a href="contact.html" class="border-2 border-light-violet text-light-violet px-6 py-3 rounded-xl font-semibold hover:bg-light-violet hover:text-white transition-all duration-300">
+                            Contact Support
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        function downloadFile(type, format) {
+            // Sample content for demonstration
+            let content = '';
+            let filename = '';
+            let mimeType = '';
+
+            switch(type) {
+                case 'summary':
+                    content = `AI Document Summary Report
+
+Generated on: ${new Date().toLocaleDateString()}
+
+EXECUTIVE SUMMARY
+This document discusses the implementation of artificial intelligence in modern business processes. The key focus is on automation, efficiency improvements, and cost reduction strategies.
+
+KEY FINDINGS
+• AI implementation can reduce operational costs by up to 30%
+• Customer service automation shows 85% satisfaction rates  
+• Data analytics capabilities improved by 200% with AI integration
+• Employee productivity increased through AI-assisted workflows
+• Risk management enhanced through predictive analytics
+
+RECOMMENDATIONS
+The analysis reveals significant potential for AI integration across various departments, with particular emphasis on customer service and data analytics.
+
+CONCLUSION
+Organizations adopting AI technologies demonstrate measurable improvements in efficiency, cost reduction, and customer satisfaction metrics.`;
+                    filename = 'ai-summary-report.pdf';
+                    mimeType = 'application/pdf';
+                    break;
+
+                case 'highlights':
+                    content = `AI Document Key Highlights
+
+Generated on: ${new Date().toLocaleDateString()}
+
+• AI implementation can reduce operational costs by up to 30%
+• Customer service automation shows 85% satisfaction rates
+• Data analytics capabilities improved by 200% with AI integration
+• Employee productivity increased through AI-assisted workflows
+• Risk management enhanced through predictive analytics
+
+Additional Insights:
+• Significant ROI observed within 6-12 months of implementation
+• Cross-departmental benefits most pronounced in customer service
+• Data-driven decision making improved by 150%
+• Automation reduced manual processing time by 40%
+• Employee satisfaction increased due to reduced repetitive tasks`;
+                    filename = 'key-highlights.txt';
+                    mimeType = 'text/plain';
+                    break;
+
+                case 'keywords':
+                    content = `Keyword,Frequency,Relevance Score,Category
+Artificial Intelligence,15,0.95,Technology
+Automation,12,0.89,Process
+Business Process,8,0.82,Operations
+Cost Reduction,7,0.78,Finance
+Customer Service,9,0.85,Service
+Data Analytics,11,0.91,Analytics
+Machine Learning,6,0.76,Technology
+Efficiency,10,0.87,Performance
+Digital Transformation,5,0.73,Strategy
+Innovation,4,0.71,Development`;
+                    filename = 'extracted-keywords.csv';
+                    mimeType = 'text/csv';
+                    break;
+            }
+
+            // Create and trigger download
+            const blob = new Blob([content], { type: mimeType });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+
+            // Show success message
+            showDownloadSuccess(type, format);
+        }
+
+        function showDownloadSuccess(type, format) {
+            // Create a temporary success message
+            const message = document.createElement('div');
+            message.className = 'fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            message.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} ${format.toUpperCase()} downloaded successfully!`;
+            
+            document.body.appendChild(message);
+            
+            // Animate in
+            setTimeout(() => {
+                message.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Animate out and remove
+            setTimeout(() => {
+                message.style.transform = 'translateX(full)';
+                setTimeout(() => {
+                    document.body.removeChild(message);
+                }, 300);
+            }, 3000);
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
